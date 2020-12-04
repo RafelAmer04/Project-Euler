@@ -1,3 +1,8 @@
 import math
-a=math.gcd(10, 8)
-print(a)
+
+sol = 1
+for i in range (1, 21):
+    gcd = math.gcd(i, sol)
+    sol *= i//gcd
+
+print(sol)

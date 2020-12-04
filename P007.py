@@ -1,9 +1,14 @@
+import math
+
 def prime(p):
+    q = math.sqrt(p)
     if p % 2 == 0:
         return False
-    for i in range(3, p, 2):
-            if p % i == 0:
-                return False
+    i = 3
+    while i <= q:
+        if p % i == 0:
+            return False
+        i += 2
     return True
 
 j = 1
