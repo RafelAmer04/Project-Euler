@@ -5,10 +5,9 @@ f.close()
 t = t.replace("\n"," ")
 t = t.split(" ")
 
-list = []
+t = list(map(int, t))
 
-for i in t:
-    list.append(int(i))
 
-sol = str(sum(list))[ : 10]
+sol = str(sum(t))[ : 10]
+
 print(sol)
