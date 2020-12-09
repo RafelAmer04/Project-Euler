@@ -1,11 +1,12 @@
-def sum(n):
-    s = 0
-    while n:
-        s += n % 10
-        n //= 10
-    print(s)
+def suma(n):
+    t = 0
+    n = str(n)
+    for i in n:
+        t += int(i)
+    print(t)
 
 p = 2**1000
 
-sum(p)
+suma(p)
+
 
