@@ -7,15 +7,16 @@ with open("P018.txt", "r") as f:
         m.append(l)
 f.close()
 
-sol = m[0][0]
-ly = 0
+def suma(f, c, total):
+    if f == total:
+        return(m[f][c])
+    a = suma(f+1, c, total)
+    b = suma(f+1, c+1, total)
 
-for i in range(1, 15):
-    if m[i][ly] > m[i][ly+1]:
-        sol += m[i][ly]
-    else:
-        sol += m[i][ly+1]
-        ly = ly+1
+    if a > b:
+        return m[f][c] + a
+    return m[f][c] + b
+
+sol = suma(0, 0, len(m)-1)
 
 print(sol)
-
