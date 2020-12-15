@@ -14,7 +14,7 @@ def Divisors(n):
                 s += i
     return s
 
-print(Divisors(1001))
+print(Divisors(10000))
 
 stop = timeit.default_timer()
 

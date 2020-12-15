@@ -37,13 +37,13 @@ def CountDaysFrom(f1, f2):
     for y in range(f1[2]+1, f2[2]):
         t += NDaysYear(y)
     #
-    # No esten el matreix any
+    # No estem al mateix any
     #
     if f2[2] > f1[2]:
         #
         # Mesos sencers des de la primera data fins a finals d'any
         #
-        for m in range (f1[1] + 1,13):
+        for m in range (f1[1] + 1, 13):
             t += NDaysMonth(m,f1[2])
         #
         # Mesos sencers des de principis d'any fins a la segona data
@@ -88,7 +88,8 @@ def CountDaysFrom(f1, f2):
 
 sol = 0
 d = 0
-for y in range(1901,7000):
+
+for y in range(1901, 2001):
     d += CountDaysFrom((1,1,y-1),(1,1,y))
     d = d % 7
     for m in range(1, 13):
