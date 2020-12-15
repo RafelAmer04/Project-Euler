@@ -1,3 +1,7 @@
+import timeit
+
+start = timeit.default_timer()
+
 def Divisors(n):
     s = 1
     if n % 2 == 0:
@@ -10,11 +14,8 @@ def Divisors(n):
                 s += i
     return s
 
-sol = 0
+print(Divisors(1001))
 
-for i in range(1, 10000):
-    for j in range(i+1, 10000):
-        if Divisors(i) == j and Divisors(j) == i:
-            sol += i + j
+stop = timeit.default_timer()
 
-print(sol)
+print('Time: ', stop - start)
