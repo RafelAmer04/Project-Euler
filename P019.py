@@ -39,13 +39,13 @@ def CountDaysFrom(f1, f2):
 
 d1 = (1,1,1900)
 sol = 0
-last = (1,1,1900)
 
-for y in range(1901, 2001):
+
+for y in range(1901, 7000):
     for m in range(1, 13):
         if CountDaysFrom(d1, (1,m,y)) % 7 == 6:
             sol += 1
-        last = (1,m,y)
+
 
 
 
