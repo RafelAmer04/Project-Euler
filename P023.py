@@ -17,4 +17,4 @@ for i in range(12, 28124):
 
 for i in range(1, 28123):
     for j in range(len(a)):
-        if i
+
