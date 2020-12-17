@@ -40,10 +40,10 @@ t = f.read()
 l = t.replace(']','').replace('[','')
 l = l.replace('"','').split(",")
 
-s = sorted(l)
+l.sort()
 
 sol = 0
 
-for i in range(len(s)):
-    sol += score(s[i], i+1)
+for i in range(len(l)):
+    sol += score(l[i], i+1)
 print(sol)
