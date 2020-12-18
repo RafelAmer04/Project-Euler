@@ -15,9 +15,21 @@ def Factor(n):
     return f
 
 def SumaDivisors(n):
-    s = 0
+    s = 1
     f = Factor(n)
+    for k,v in f.items():
+        s *= (k**(v+1)-1)//(k-1)
+    return s-n
+
+def DivisorSum(n):
+    s = 1
+    for i in range(2, n//2+1):
+        if n % i == 0:
+            s += i
+    return s
 
 
-print(Factor(54))
+n = 1509880500
+
+print(SumaDivisors(n))
 
