@@ -25,7 +25,7 @@ def SumaDivisors(n):
 #Calculate all abundant numbers below 28123
 
 n = 28123
-a =
+a = []
 s = 0
 b = []
 x = 0
