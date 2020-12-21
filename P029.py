@@ -7,6 +7,4 @@ for a in range(2, 101):
         if value not in l:
             l.append(value)
 
-l.sort()
-
 print(len(l))
