@@ -1,6 +1,6 @@
 l = []
 
-for i in range(100):
+for i in range(4, 100):
     for j in range(100, 10000):
         s = set(str(i)) | set(str(j))
         if "0" in s:
