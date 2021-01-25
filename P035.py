@@ -11,16 +11,14 @@ def prime(p):
         i += 2
     return True
 
-def premutations:
-    pass
+def rotations(s):
+    rot = [s]
+    for i in range(len(s)-1):
+        ls = []
+        l = s[-1]
+        s = s[:-1]
+        s = l + s
+        rot.append(s)
+    return rot
 
-
-lp = []
-
-for i in range(1000000):
-    if prime(i):
-        lp.append(i)
-
-
-for i in range(1000000):
-    
+print(rotations("197"))
