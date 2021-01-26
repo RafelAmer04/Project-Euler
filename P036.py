@@ -16,3 +16,5 @@ for i in range(1, 1000000):
         sol += i
 
 print(sol)
+
+print("test")
