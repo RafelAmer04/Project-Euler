@@ -3,7 +3,6 @@ from functions.functions import IsPrime
 from itertools import permutations
 
 t = "123456789"
-perm = [''.join(p) for p in permutations(t)]
 lar = 0
 
 
