@@ -1,6 +1,5 @@
 from itertools import permutations
 
-
 def SubDivisibility(n):
     div = [2,3,5,7,11,13,17]
     n = str(n)
@@ -18,13 +17,8 @@ def SubDivisibility(n):
 t = "0123456789"
 sum = 0
 
-
-
 for p in permutations(t):
     s = "".join(p)
     if SubDivisibility(s):
         sum += int(s)
-print(s, sum)
-
-
 print(sum)
