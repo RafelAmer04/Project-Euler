@@ -39,16 +39,6 @@ while D == 0:
                 print(PK, " ", PJ, " ", sum)
                 if IsPentagonal(PJ - PK):
                     D = abs(PJ - PK)
-
+    n += 1
 
 print(D)
-
-
-
-
-
-
-
-
-
-    n += 1
