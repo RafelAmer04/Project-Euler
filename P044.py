@@ -36,7 +36,7 @@ while D == 0:
         for k in range(1, j):
             PJ, PK = PL[j], PL[k]
             if PJ + PK == sum:
-                print(PK, " ", PJ, " ", sum)
+                # print(PK, " ", PJ, " ", sum)
                 if IsPentagonal(PJ - PK):
                     D = abs(PJ - PK)
     n += 1
