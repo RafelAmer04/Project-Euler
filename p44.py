@@ -16,14 +16,12 @@ def pentagonal(n):
 
 n = 1
 while True:
-    p = pentagonal(n) 
+    p = pentagonal(n)
     m = 1
     while m < n:
         q = pentagonal(m)
         if is_pentagonal(p-q) and is_pentagonal(p+q):
-            print p, q, p-q, p+q
+            print(p, q, p-q, p+q)
             sys.exit(0)
         m += 1
     n += 1
-        
-    
