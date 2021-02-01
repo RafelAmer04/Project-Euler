@@ -1,7 +1,6 @@
 #include "stdio.h"
 
 
-
 int main(){
   int a = 1, b = 2, t, sol = 2;
   while (b <= 4000000) {
