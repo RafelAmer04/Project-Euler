@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <limits.h>
+
 
 
 
@@ -18,6 +18,5 @@ int main(int argc, char const *argv[]){
         }
     }
     printf("%lu\n", sol);
-    printf("%lu\n", ULONG_MAX);
     return 0;
 }
