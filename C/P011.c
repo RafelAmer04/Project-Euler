@@ -8,4 +8,18 @@ int main(int argc, char *argv[]){
         printf("Error reading file \n");
         return 1;
     }
+
+
+    unsigned int sol;
+    unsigned int p;
+
+    for(unsigned int x; x < 18; x++){
+        for(unsigned int y; y < 18; y++){
+            
+        }
+    }
+
+
+
+    return 0,
 }
