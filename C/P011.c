@@ -1,6 +1,19 @@
 #include <stdio.h>
 #include <readnumbers.h>
 
+#define EAST 0
+#define SOUTH 1
+#define SOUTHEAST 3
+#define NORTHEAST 4
+
+
+unsigned int get_product(matrix m, unsigned int row, unsigned int col, unsigned int n, int dir, int *error){
+    if(dir == EAST){
+
+    }
+
+}
+
 
 int main(int argc, char *argv[]){
     matrix m;
@@ -14,34 +27,14 @@ int main(int argc, char *argv[]){
     unsigned int p;
 
 
-
-
-
-    row r;
-    r = m->rows[m->used-1];
-    for(unsigned int i = 0; i < r->used; i++)
-        printf("%u ",r->numbers[i]);
-
-    printf("\n");
-  
-
-
-
-    printf("Number of rows in file: %u\n", m->used);
-    free_matrix(m);
     
-
-
-
-
-
-    for(unsigned int x = 0; x < 16; x++){
-        for(unsigned int y = 0; y < 16; y++){
+    for(unsigned int x = 0; x < 17; x++){
+        for(unsigned int y = 0; y < 17; y++){
             int error;
 
             p = matrix_get_number(m,x,y,&error) * matrix_get_number(m,x,y+1,&error) * matrix_get_number(m,x,y+2,&error) * matrix_get_number(m,x,y+3,&error);
             if(error){
-                printf("Can't multiply 1 %u\n", error);
+                printf("Can't multiply 1  X= %u Y= %u\n", x,y);
                 return 1;
             }
             if(p > sol)
@@ -102,6 +95,9 @@ int main(int argc, char *argv[]){
                 sol = p;
         }
     }
+
+    free_matrix(m);
+    printf("The solution is: %u\n", sol);
 
 
     return 0;

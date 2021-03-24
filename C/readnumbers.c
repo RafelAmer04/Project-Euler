@@ -163,8 +163,6 @@ matrix matrix_from_file(const char *filename){
 
 
     while ((c = getc(fp)) != EOF){
-        if((c == '0') && (used == 0))
-            continue;
 
         if(isdigit(c))
             temp[used++] = c;
@@ -193,6 +191,18 @@ matrix matrix_from_file(const char *filename){
                 return NULL;
             }
         }   
+    }
+    if(used > 0){
+        temp[used] = '\0';
+        char *p;
+        unsigned int n = strtoul(temp, &p, 10);
+        if(add_number(r, n) < 0) {
+            printf("Couldn't add number to row %u\n", m->used);
+            free_row(r);
+            free_matrix(m);
+            return NULL;
+        }
+        used = 0;
     }
     if((r != NULL) && (r->used > 0)){
         if(matrix_add_row(m, r) < 0) {
