@@ -10,5 +10,5 @@ def binomial(n, k):
     return a
 
 
-print(binomial(40, 20))
+print(binomial(150, 50))
     

@@ -13,6 +13,6 @@ unsigned long int binomial(unsigned int n, unsigned int k){
 }
 
 int main(int argc, char *argv[]){
-    unsigned long int sol = binomial(40,20);
+    unsigned long int sol = binomial(150,50);
     printf("%lu\n", sol);
 }
