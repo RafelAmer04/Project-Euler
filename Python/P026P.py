@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 #
-# Python 2!!!
+# Python 2!
 #
 
 
