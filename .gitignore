@@ -1,4 +1,3 @@
 /venv
 /.idea
-/.vscode
-*.o
+cmake-build-debug/CMakeFiles/clion-log.txt
