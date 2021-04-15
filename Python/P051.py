@@ -17,8 +17,6 @@ def Repetitions(n):
     return r1
 
 
-
-
 sol = 0
 PL = [0]
 
@@ -30,12 +28,12 @@ while sol == 0:
     if r == {}:
         continue
 
-
     r = Repetitions(P).values()
     l = list(map(int, str(P)))
 
     count = 0
 
+    12233
 
     for i in r:
         for j in range(0, 10):
@@ -46,9 +44,9 @@ while sol == 0:
             res = int("".join(s))
             
             if res not in PL or not IsPrime(res):
-                continue
                 count = 0
-            
+                continue
+        
             count += 1
             l = list(map(int, str(P)))
 
@@ -60,6 +58,4 @@ while sol == 0:
 
 print(sol)
 
-    
-    
     
