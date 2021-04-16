@@ -33,7 +33,6 @@ while sol == 0:
 
     count = 0
 
-    12233
 
     for i in r:
         for j in range(0, 10):
