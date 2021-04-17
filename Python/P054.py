@@ -1,6 +1,4 @@
 
-
-
 """
 High Card: 0 | Needs a Value
 One Pair: 1 | Needs a Value
@@ -36,12 +34,14 @@ def GetScore(hand):
     
     RANKS, SUITS = zip(*sorted(zip(RANKS, SUITS)))
 
+
 #   One Pair: 1 
     for i in range(len(RANKS)-1):
         if RANKS[i] == RANKS[i+1]:
             HIGHEST = 1
             VALUE = RANKS[i]
             break
+
 
 #   Two Pairs: 2
     if HIGHEST == 1:
@@ -51,11 +51,13 @@ def GetScore(hand):
                 if RANKS[i] > VALUE:
                     VALUE = RANKS[i]
 
+
 #   Three of a Kind: 3
     for i in range(len(RANKS)-2):
         if RANKS[i] == RANKS[i+1] and RANKS[i] == RANKS[i+2]:
             HIGHEST = 3
             VALUE = RANKS[i]
+
 
 #   Straight: 4
         t = 0
@@ -66,6 +68,7 @@ def GetScore(hand):
         if t == 0:
             HIGHEST = 4
             VALUE = RANKS[-1]
+
 
 #   Flush: 5
     t = 0
@@ -78,6 +81,13 @@ def GetScore(hand):
         VALUE = 0
 
 
+#   Full House: 6
+
+
+
+
+
+
 
     print(RANKS, SUITS)
 
@@ -88,6 +98,6 @@ def GetScore(hand):
 
 
 
-input =  "5D 6D 7D 8D 9P"
+input =  "5D 6D 7D 8D 9C"
 
 print(GetScore(input))

@@ -24,7 +24,6 @@ while sol == 0:
     PL.append(NextPrime(PL[-1]))
     P = PL[-1]
     r = Repetitions(PL[-1])
-    print(P)
     if r == {}:
         continue
 
@@ -41,12 +40,19 @@ while sol == 0:
 
             s = [str(h) for h in l]
             res = int("".join(s))
+            
+            if len(str(res)) != len(str(P)):
+                continue
 
             if res in PL or IsPrime(res):
                 count += 1
-                l = list(map(int, str(P)))
+                print(res, j)
+                
 
-    if count == 7:
-        sol = P
-    count = 0
+        if count == 8:
+            sol = P
+            break
+
+
+
 print(sol)
