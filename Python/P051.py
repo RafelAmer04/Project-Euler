@@ -6,9 +6,9 @@ def Repetitions(n):
     for i in range(len(s)):
         k = int(s[i])
         try:
-             r[k]
+            r[k]
         except:
-             r[k] = []
+            r[k] = []
         r[k].append(i)
     r1 = {}
     for k in r.keys():
@@ -24,7 +24,7 @@ while sol == 0:
     PL.append(NextPrime(PL[-1]))
     P = PL[-1]
     r = Repetitions(PL[-1])
-
+    print(P)
     if r == {}:
         continue
 
@@ -33,28 +33,20 @@ while sol == 0:
 
     count = 0
 
-
     for i in r:
+        count = 0
         for j in range(0, 10):
             for n in i:
                 l[n] = j
-           
+
             s = [str(h) for h in l]
             res = int("".join(s))
-            
-            if res not in PL or not IsPrime(res):
-                count = 0
-                continue
-        
-            count += 1
-            l = list(map(int, str(P)))
 
-    if count == 8:
+            if res in PL or IsPrime(res):
+                count += 1
+                l = list(map(int, str(P)))
+
+    if count == 7:
         sol = P
     count = 0
-
-
-
 print(sol)
-
-    
