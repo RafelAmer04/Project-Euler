@@ -1,17 +1,5 @@
 from functions.functions import *
 
-def Repetitions(n):
-    r = {}
-    s = str(n)
-    for i in range(len(s)):
-        k = int(s[i])
-        try:
-            r[k]
-        except:
-            r[k] = []
-        r[k].append(i)
-    r1 = {}
-    for k in r.keys():from functions.functions import *
 
 def Repetitions(n):
     r = {}
