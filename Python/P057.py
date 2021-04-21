@@ -33,6 +33,28 @@ class Fraction:
     #
     #
     #
+    def __radd__(self,other):
+        if isinstance(other,int):
+            return Fraction(self.q * other + self.p,self.q)
+        m = self.lcm(self.q,other.q)
+        return Fraction(self.p * m // self.q + other.p * m // other.q,m)
+    #
+    #
+    #
+    def __mul__(self,other):
+        if isinstance(other,int):
+            return Fraction(other * self.p,self.q)
+        return Fraction(self.p * other.p,self.q * other.q)
+    #
+    #
+    #
+    def __rmul__(self,other):
+        if isinstance(other,int):
+            return Fraction(other * self.p,self.q)
+        return Fraction(self.p * other.p,self.q * other.q)    
+    #
+    #
+    #
     def __truediv__(self,other):
         if isinstance(other,int):
             return Fraction(self.p,self.q * other)
@@ -40,8 +62,11 @@ class Fraction:
     #
     #
     #
-    def invert(self):
-        return Fraction(self.q,self.p)
+    def __rtruediv__(self,other):
+        if isinstance(other,int):
+            return Fraction(other * self.q,self.p)
+        return Fraction(self.q * other.p,self.p * other.q)
+
 
     def denominator(self):
         return f"{self.q}"
@@ -51,8 +76,7 @@ class Fraction:
 
 
 def NextFraction(n):
-    one = Fraction(1,1)
-    return one + (one + n).invert()
+    return 1 + 1 / (1 + n)
 
 n = Fraction(3,2)
 sol = 0
