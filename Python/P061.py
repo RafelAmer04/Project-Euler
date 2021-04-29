@@ -55,11 +55,4 @@ while count < 6:
             OCTAGONAL.append(l)
 
 
-
-print(PENTAGONAL)
-
-
-
-
-
 print(len(TRIANGULAR),len(SQUARE), len(PENTAGONAL), len(HEXAGONAL), len(HEPTAGONAL),len(OCTAGONAL))
