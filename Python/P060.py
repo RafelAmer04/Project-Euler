@@ -1,33 +1,25 @@
-from functions.functions import *
-from itertools import combinations
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+#
 
-def ConcatenatePrimes(l):
-    if len(l) != 5:
-        return False
-    C = combinations(l, 2)
-    for p in C:
-        s1 = f"{p[0]}{p[1]}"
-        s2 = f"{p[1]}{p[0]}"
-        if not IsPrime(s1) or not IsPrime(s2):
-            return False
-    return True
+import networkx as nx
+from Primes import *
 
+primes = [2]
+G = nx.Graph()
 
+for k in range(3,10001):
+    if is_prime(k):
+        primes.append(k)
 
-PL = [2,3,5,7,11]
+for i in range(len(primes)):
+    for j in range(i+1,len(primes)):
+        s1 = str(primes[i])
+        s2 = str(primes[j])
+        if is_prime(int(s1+s2)) and is_prime(int(s2+s1)):
+            G.add_edge(primes[i],primes[j])
 
-
-sol = 0
-
-
-while sol == 0:
-    C = combinations(PL, 4)
-    for p in C:
-        p = list(p) + [PL[-1]]
-        if ConcatenatePrimes(p):
-            sol = sum(p)
-            sol2 = p
-    PL.append(NextPrime(PL[-1]))
-
-
-print(sol, sol2)
+cliques = nx.find_cliques(G)
+for c in cliques:
+    if len(c) >= 5:
+        print(sum(c))
