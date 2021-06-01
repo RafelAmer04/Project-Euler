@@ -8,7 +8,7 @@ from functions.functions import IsPrime
 primes = [2]
 G = nx.Graph()
 
-for k in range(3,10001):
+for k in range(3,26029):
     if IsPrime(k):
         primes.append(k)
 
