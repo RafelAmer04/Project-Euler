@@ -14,7 +14,6 @@ with open("P067.txt", "r") as f:
         m.append(l)
 f.close()
 
-print(m[2][1])
 
 for f in range(98, -1, -1):
     for c in range(0, f+1):
