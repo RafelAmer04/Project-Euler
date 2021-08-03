@@ -19,7 +19,7 @@ def NextLexi(n):
     r = ant + [m] + post
     return r
 
-n = 100
+n = 2180
 sol = 0
 
 while sol == 0:
@@ -30,7 +30,7 @@ while sol == 0:
     cubes = set()
     while perm is not None:
         t = int("".join([scube[i] for i in perm]))
-        if isCube(t):
+        if isCube(t) and len(scube) == len(str(t)):
             cubes.add(t)
         perm = NextLexi(perm)
     if len(cubes) == 5:
