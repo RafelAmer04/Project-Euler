@@ -2,3 +2,4 @@
 /.idea
 cmake-build-debug/CMakeFiles/clion-log.txt
 /Python/functions/__pycache__
+/.vscode
