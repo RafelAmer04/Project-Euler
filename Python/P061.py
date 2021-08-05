@@ -3,17 +3,14 @@ import sys
 
 TRIANGULAR, SQUARE, PENTAGONAL, HEXAGONAL,  HEPTAGONAL, OCTAGONAL = [], [], [], [], [], []
 TRI, SQU, PEN, HEX, HEP, OCT = 0, 0, 0, 0, 0, 0
+POLIGONAL = [TRIANGULAR, SQUARE, PENTAGONAL, HEXAGONAL,  HEPTAGONAL, OCTAGONAL]
 
-POLIGONAL = {"TRIANGULAR": TRIANGULAR,
-            "SQUARE":SQUARE,
-            "PENTAGONAL": PENTAGONAL,
-            "HEXAGONAL":HEXAGONAL,
-            "HEPTAGONAL": HEPTAGONAL,
-            "OCTAGONAL": OCTAGONAL}
+
+
 
 n = 0
 count = 0
- 
+
 while count < 6:
     n += 1
 
@@ -23,7 +20,7 @@ while count < 6:
             TRI = 1
             count += 1
         elif l >= 1000:
-            TRIANGULAR.append(l)
+            TRIANGULAR.append(str(l))
 
     if SQU == 0:
         l = n**2
@@ -31,7 +28,7 @@ while count < 6:
             SQU = 1
             count += 1
         elif l >= 1000:
-            SQUARE.append(l)
+            SQUARE.append(str(l))
 
     if PEN == 0:
         l = n*(3*n-1)//2
@@ -39,23 +36,23 @@ while count < 6:
             PEN = 1
             count += 1
         elif l >= 1000:
-            PENTAGONAL.append(l)
+            PENTAGONAL.append(str(l))
 
     if HEX == 0:
-        l = n*(n-1)
+        l = n*(2*n-1)
         if l >= 10000:
             HEX = 1
             count += 1
         elif l >= 1000:
-            HEXAGONAL.append(l)
+            HEXAGONAL.append(str(l))
 
     if HEP == 0:
-        l = n*(5*n-1)//2
+        l = n*(5*n-3)//2
         if l >= 10000:
             HEP = 1
             count += 1
         elif l >= 1000:
-            HEPTAGONAL.append(l)
+            HEPTAGONAL.append(str(l))
 
     if OCT == 0:
         l = n*(3*n-2)
@@ -63,8 +60,38 @@ while count < 6:
             OCT = 1
             count += 1
         elif l >= 1000:
-            OCTAGONAL.append(l)
+            OCTAGONAL.append(str(l))
 
+
+
+def Cyclic(p, n):
+    q = n[-1]
+    c = n[0]
+    for i in p:
+        for j in POLIGONAL[i]:
+            if j[:2] == q[-2:]:
+                n.append(j)
+                if len(n) == 6 and j[-2:] == c[:2]:
+                    k = sum(map(int, n))
+                    print(n, k)
+                    sys.exit(0)
+                l = list(p)
+                l.remove(i)
+                Cyclic(l, n)
+                n.remove(j)
+
+for n in TRIANGULAR:
+    Cyclic([1,2,3,4,5], [n])
+
+"""""
+
+POLI = {"TRIANGULAR": TRIANGULAR,
+            "SQUARE":SQUARE,
+            "PENTAGONAL": PENTAGONAL,
+            "HEXAGONAL":HEXAGONAL,
+            "HEPTAGONAL": HEPTAGONAL,
+            "OCTAGONAL": OCTAGONAL}
+            
 
 for i in range(10, 100):
     for j in range(10, 100):
@@ -78,9 +105,10 @@ for i in range(10, 100):
                             continue
                         Q = set()
                         for x in CC:
-                            for t,s in POLIGONAL.items():
+                            for t,s in POLI.items():
                                 if x in s:
                                     Q.add(t)
                         if len(Q) == 6:
                             print(CC)
                             sys.exit(0)
+"""
