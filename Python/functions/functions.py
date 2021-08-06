@@ -39,14 +39,13 @@ def FactorInteger(n):
         f.append((2, e))
 
     j = 3
+    s = int(math.sqrt(n)) + 1
 
     while n != 1:
         e = 0
-        s = int(math.sqrt(n)) + 1
         while (n % j == 0) and (j <= s):
             n //= j
             e += 1
-            s = int(math.sqrt(n)) + 1
         if e > 0:
             f.append((j, e))
         if j > s and n > 1:
