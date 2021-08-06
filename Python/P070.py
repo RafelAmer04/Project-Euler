@@ -1,25 +1,31 @@
 from functions.functions import FactorInteger
 
-
 def phi(n):
     f = FactorInteger(n)
     p = n
     for i in f:
         p *= 1 - 1/i[0]
-    return p
+    return round(p)
 
-min = 28748
+def ArePermutation(n,m):
+    ns = list(str(n))
+    ms = list(str(m))
+    ns.sort()
+    ms.sort()
+    return ns == ms
+
+
+m = 10**8
 sol = 0
 
 
-for i in range(2, 10000000):
+for i in range(2, 10000001):
     p = phi(i)
-    if len(str(p)) != len(str(i)):
+    if not ArePermutation(i, p):
         continue
-    pr = [int(x) for x in str(p)]
-    ir = [int(x) for x in str(i)]
-    if len(set(ir+pr)) == len(ir) and i/p < min:
-            min = i/p
-            sol = i
+
+    if i/p < m:
+        m = i/p
+        sol = i
 
 print(sol)
