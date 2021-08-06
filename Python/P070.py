@@ -28,4 +28,5 @@ for i in range(2, 10000001):
         m = i/p
         sol = i
 
+
 print(sol)
