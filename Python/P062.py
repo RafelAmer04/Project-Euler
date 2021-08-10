@@ -1,44 +1,53 @@
-def isCube(n):
-    return round(n**(1.0/3))**3 == n
-
-def NextLexi(n):
-    i = 2
-    l = len(n)
-    while n[-i] > n[-i+1]:
-        i += 1
-        if i == len(n)+1:
-            return None
-    ant = n[0:l-i]
-    piv = n[-i]
-    post = n[l-i+1:]
-    aux = [x for x in post if x > piv]
-    m = min(aux)
-    post.remove(m)
-    post.append(piv)
-    post.sort()
-    r = ant + [m] + post
-    return r
-
-n = 2180
-sol = 0
-
-while sol == 0:
-    n +=1
-    cube = n**3
-    scube = str(cube)
-    perm = list(range(len(scube)))
-    cubes = set()
-    while perm is not None:
-        t = int("".join([scube[i] for i in perm]))
-        if isCube(t) and len(scube) == len(str(t)):
-            cubes.add(t)
-        perm = NextLexi(perm)
-    if len(cubes) == 5:
-        sol = cubes
+def ArePermutation(n,m):
+    ns = list(str(n))
+    ms = list(str(m))
+    ns.sort()
+    ms.sort()
+    return ns == ms
 
 
-print(sol)
-print(n)
+def test_list_of_cubes(permutations,cubes):
+    if len(cubes) == 0:
+        return permutations
+    if len(permutations) + len(cubes) < 3:
+        return []
+    if len(permutations) == 3:
+        return permutations
+    for i in range(len(cubes) - 1):
+        if len(permutations) == 0:
+            permutations.append(cubes[i])
+        elif ArePermutation(permutations[-1],cubes[i]):
+            permutations.append(cubes[i])
+        cubes = cubes[i+1:]
+        r = test_list_of_cubes(permutations, cubes)
+        if len(r) == 3:
+            return r
+        if len(permutations) != 0:
+            permutations.pop()
+    return []
+
+limit = 8
+
+while limit < 9:
+    k1 = int(10**(limit/3))
+
+    if k1**3 < 10**limit:
+        k1 += 1
+
+    k2 = int((10**(limit+1)-1)**(1/3))
+    l = [x**3 for x in range(k1, k2+1)]
+    r = test_list_of_cubes([],l)
+    if len(r) == 3:
+        print (r)
+
+
+
+
+    limit += 1
+
+
+
+
 
 
 
