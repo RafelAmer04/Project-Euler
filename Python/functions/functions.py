@@ -53,3 +53,27 @@ def FactorInteger(n):
             return f
         j += 2                    
     return f
+
+
+def FirstFactor(n):
+    e = 0
+
+    while n % 2 == 0:
+        n //= 2
+        e += 1
+    if e > 0:
+        return 2, e
+
+    j = 3
+    s = int(math.sqrt(n)) + 1
+
+    while n != 1:
+        e = 0
+        while (n % j == 0) and (j <= s):
+            n //= j
+            e += 1
+        if e > 0:
+            return j, e
+        if j > s and n > 1:
+            return n, 1
+        j += 2
