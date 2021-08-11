@@ -15,7 +15,7 @@ def test_list_of_cubes(permutations,cubes):
     if len(permutations) + len(cubes) < 5:
         return
     if len(permutations) == 5:
-        print (permutations)
+        print (permutations[0])
         done = True
         return
     for i in range(len(cubes) - 1):
