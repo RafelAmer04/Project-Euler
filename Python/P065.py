@@ -1,7 +1,7 @@
 from sympy import *
 
 def ContinousFraction(e):
-    f = Rational(1,e[-1])
+    f = e[-1]
     for i in range(len(e)-2, -1, -1):
         f = e[i] + Rational(1,f)
     return f
