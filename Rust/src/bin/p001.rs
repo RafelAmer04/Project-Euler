@@ -1,4 +1,9 @@
 // Problem 001 (https://projecteuler.net/problem=1) solver
+
+fn main() {
+    println!("{}", compute())
+}
+
 fn compute() -> u32 {
     let mut solution = 0;
 
@@ -8,8 +13,4 @@ fn compute() -> u32 {
         }
     }
     return solution;
-}
-
-fn main() {
-    println!("{}", compute())
 }
