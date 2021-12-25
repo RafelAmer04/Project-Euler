@@ -1,19 +1,19 @@
 total = 0
-values = list(range(10, 0, -1))
+values = list(range(100, 0, -1))
 
 
 def count_options(actual, value):
     global total
     global values
-    if value > 10:
+    if value > 100:
         return
-    if value == 10:
+    if value == 100:
         total += 1
         return
     l = len(actual)
-    if l == 10:
+    if l == 100:
         return
-    d = 10 - value
+    d = 100 - value
     m = d // values[l]
     for i in range(0, m + 1):
         value += i * values[l]
@@ -25,4 +25,5 @@ def count_options(actual, value):
 
 count_options([], 0)
 
-print(total)
+print(total-1)
+    
