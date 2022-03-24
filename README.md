@@ -1,3 +1,3 @@
 # Project Euler
 
-Project Euler solutions with python C and Rust
+Project Euler solutions with Python, C and Rust
